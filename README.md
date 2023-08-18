@@ -50,5 +50,6 @@ gnome-extensions pack \
 --extra-source="LICENSE" \
 --extra-source="img" \
 --extra-source="ui" \
---extra-source="lib"
+--extra-source="lib" \
+--extra-source="script"
 ```
