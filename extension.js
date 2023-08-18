@@ -10,7 +10,7 @@ const Util = imports.misc.util;
 const Clutter = imports.gi.Clutter;
 
 const {TopBarView, AttachedToBatteryView} = Me.imports.ui;
-const {Utility, FileManagerExtention} = Me.imports.lib;
+const {Utility, PrimeRun} = Me.imports.lib;
 
 class Extension {
     enable() {
@@ -30,11 +30,13 @@ class Extension {
         switch(gpu_profile){
             //Remove file explorer extention if not in offload mode because it can't be used
             default:
-                FileManagerExtention.remove_file_manager_extention();
+                PrimeRun.remove_file_manager_extention();
+                PrimeRun.remove_binary();
                 break;
             //Add file explorer extention only if in offload mode
             case Utility.GPU_PROFILE_HYBRID:
-                FileManagerExtention.install_file_manager_extention();
+                PrimeRun.install_file_manager_extention();
+                PrimeRun.install_binary();
                 break;
         }
 
