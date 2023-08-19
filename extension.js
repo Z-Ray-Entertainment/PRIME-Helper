@@ -25,7 +25,7 @@ class Extension {
             this.extensionView.enable();
         }
 
-        //Add / remove file explorer extention.
+        //Add / remove file explorer extention and prime-run.
         const gpu_profile = Utility.getCurrentProfile();
         switch(gpu_profile){
             //Remove file explorer extention if not in offload mode because it can't be used
