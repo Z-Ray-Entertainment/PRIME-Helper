@@ -10,7 +10,7 @@ const Util = imports.misc.util;
 const Clutter = imports.gi.Clutter;
 
 const {TopBarView, AttachedToBatteryView} = Me.imports.ui;
-const {Utility, PrimeRun} = Me.imports.lib;
+const {Utility, Scripts} = Me.imports.lib;
 
 class Extension {
     enable() {
@@ -30,13 +30,23 @@ class Extension {
         switch(gpu_profile){
             //Remove file explorer extention if not in offload mode because it can't be used
             default:
-                PrimeRun.remove_file_manager_extention();
-                PrimeRun.remove_binary();
+                Scripts.remove_script(Utility.SCRIPT_TYPE_PRIME_NAUTILUS);
+                Scripts.remove_script(Utility.SCRIPT_TYPE_PRIME_RUN);
+
+                //Zink
+                Scripts.install_script(Utility.SCRIPT_TYPE_ZINK_RUN_NAUTILUS);
+                Scripts.install_script(Utility.SCRIPT_TYPE_ZINK_RUN);
                 break;
             //Add file explorer extention only if in offload mode
             case Utility.GPU_PROFILE_HYBRID:
-                PrimeRun.install_file_manager_extention();
-                PrimeRun.install_binary();
+                Scripts.install_script(Utility.SCRIPT_TYPE_PRIME_NAUTILUS);
+                Scripts.install_script(Utility.SCRIPT_TYPE_PRIME_RUN);
+                
+                //Zink
+                Scripts.install_script(Utility.SCRIPT_TYPE_PRIME_ZINK_NAUTILUS);
+                Scripts.install_script(Utility.SCRIPT_TYPE_PRIME_RUN_ZINK);
+                Scripts.remove_script(Utility.SCRIPT_TYPE_ZINK_RUN_NAUTILUS);
+                Scripts.remove_script(Utility.SCRIPT_TYPE_ZINK_RUN);
                 break;
         }
 
