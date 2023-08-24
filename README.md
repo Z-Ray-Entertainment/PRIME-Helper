@@ -18,6 +18,15 @@ Designed to work with `suse-prime` and similar NVIDIA PRIME implementations, i.e
 - `zink-run` utility to run application from CLI via Zink (OpenGL over Vulkan) if running in nvidia or intel
 - `prime-run-zink` utility to run applications from CLI on nVidia dGPUs with Zink enabled if running in offload mode
 
+### Steam Launch Options
+To make use of the addional utility scripts add the following to your steam launch options:
+#### Zink (nvidia and intel mode only)
+`zink-run %command%`
+#### Prime with Zink enabled (Offload mode only)
+`prime-run-zink %command%`
+#### Prime (Offload mode only)
+`prime-run %command%`
+
 ## Dependencies
 - `pkexec`
 - [bash](https://www.gnu.org/software/bash/)
@@ -29,6 +38,7 @@ Designed to work with `suse-prime` and similar NVIDIA PRIME implementations, i.e
 ### Gnome-shell Extension website
 - Install all the [dependencies](#Dependencies)
 - Enable extension in official [Gnome Extension](https://extensions.gnome.org/extension/5937/prime-gpu-profile-selector/) store
+- Make sure `~/.local/bin/` is in your `$PATH` for various utility scripts to function from CLI
 
 ### Manual
 - Install all the [dependencies](#Dependencies)
