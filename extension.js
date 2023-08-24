@@ -28,16 +28,18 @@ class Extension {
         //Add / remove file explorer extention and prime-run.
         const gpu_profile = Utility.getCurrentProfile();
         switch(gpu_profile){
-            //Remove file explorer extention if not in offload mode because it can't be used
+            //Intel and Nvidia
             default:
                 Scripts.remove_script(Utility.SCRIPT_TYPE_PRIME_NAUTILUS);
                 Scripts.remove_script(Utility.SCRIPT_TYPE_PRIME_RUN);
+                Scripts.remove_script(Utility.SCRIPT_TYPE_PRIME_ZINK_NAUTILUS);
+                Scripts.remove_script(Utility.SCRIPT_TYPE_PRIME_RUN_ZINK);
 
                 //Zink
                 Scripts.install_script(Utility.SCRIPT_TYPE_ZINK_RUN_NAUTILUS);
                 Scripts.install_script(Utility.SCRIPT_TYPE_ZINK_RUN);
                 break;
-            //Add file explorer extention only if in offload mode
+            //Offload
             case Utility.GPU_PROFILE_HYBRID:
                 Scripts.install_script(Utility.SCRIPT_TYPE_PRIME_NAUTILUS);
                 Scripts.install_script(Utility.SCRIPT_TYPE_PRIME_RUN);
