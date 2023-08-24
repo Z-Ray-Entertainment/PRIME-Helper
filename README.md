@@ -12,6 +12,11 @@ Designed to work with `suse-prime` and similar NVIDIA PRIME implementations, i.e
 ## Features
 - Switch between Intel, Nvidia and PRIME Offload mode
 - Nautilus script to run executables on nVidia GPU if running in offload mode
+- Nautilus Script to run Application via Zink (OpenGL over Vulkan) if in nvidia or intel mode
+- Nautilus Script to run application on your nVidia GPU in offload mode with Zink enabled if running in offload mode
+- `prime-run` utility to run applications from CLI on nVidia dGPUs if running in nvidia or intel mode
+- `zink-run` utility to run application from CLI via Zink (OpenGL over Vulkan) if running in nvidia or intel
+- `prime-run-zink` utility to run applications from CLI on nVidia dGPUs with Zink enabled if running in offload mode
 
 ## Dependencies
 - `pkexec`
