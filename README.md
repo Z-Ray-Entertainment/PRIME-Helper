@@ -11,7 +11,31 @@ Designed to work with `suse-prime` and similar NVIDIA PRIME implementations, i.e
 
 ## Features
 - Switch between Intel, Nvidia and PRIME Offload mode
-- Nautilus script to run executables on nVidia GPU if running in offload mode
+
+### Offload mode
+- Nautilus script to run executables on nVidia dGPU
+- Nautilus Script to run application on nVidia dGPU with Zink enabled
+- `prime-run` utility to run applications from CLI on nVidia dGPU
+- `prime-run-zink` utility to run applications from CLI on nVidia dGPU with Zink enabled
+
+### Intel and NVidia mode
+- Nautilus Script to run application via Zink (OpenGL over Vulkan)
+- `zink-run` utility to run application from CLI via Zink (OpenGL over Vulkan)
+
+## Steam Launch Options
+To make use of the addional utility scripts add the following to your steam launch options:
+### Zink (nvidia and intel mode only)
+`zink-run %command%`
+or if running flatpak Steam:
+`$HOME/.local/bin/zink-run %command%`
+### Prime with Zink enabled (Offload mode only)
+`prime-run-zink %command%`
+or if running flatpak Steam:
+`$HOME/.local/bin/prime-run-zink %command%`
+### Prime (Offload mode only)
+`prime-run %command%`
+or if running flatpak Steam:
+`$HOME/.local/bin/prime-run %command%`
 
 ## Dependencies
 - `pkexec`
@@ -24,6 +48,9 @@ Designed to work with `suse-prime` and similar NVIDIA PRIME implementations, i.e
 ### Gnome-shell Extension website
 - Install all the [dependencies](#Dependencies)
 - Enable extension in official [Gnome Extension](https://extensions.gnome.org/extension/5937/prime-gpu-profile-selector/) store
+- Make sure `~/.local/bin/` is in your `$PATH` for various utility scripts to function from CLI
+#### Flatpak
+If running apps via flatpak make sure you add `~/.local/bin/` to the list of allowed directories via flatseal. 
 
 ### Manual
 - Install all the [dependencies](#Dependencies)
