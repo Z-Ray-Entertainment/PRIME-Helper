@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> Discontinued in favour of [OptimusUI](https://github.com/Z-Ray-Entertainment/optimus-ui)
+
 # PRIME Helper GNOME Shell Extension
 
 **based on this extension: <https://github.com/alexispurslane/PRIME-GPU-Profile-Selector>**
